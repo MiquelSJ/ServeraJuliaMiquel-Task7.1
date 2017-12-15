@@ -46,4 +46,4 @@ public class Connect {
         }
         return arrayRestaurants;
     }
-}}
+}

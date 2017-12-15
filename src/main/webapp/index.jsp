@@ -1,3 +1,7 @@
+<%@ page import="com.iesemilidarder.restaurants.web.Connect" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.iesemilidarder.restaurants.web.Restaurants" %>
+<%@ page import="java.util.Iterator" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="ca">
@@ -54,6 +58,32 @@
     </div>
 
     <div class="container">
+        <%
+
+
+            Connect Connect = new Connect();
+            ArrayList arrayRestaurants = Connect.readRestaurants();
+            Iterator itr = arrayRestaurants.iterator();
+
+            while (itr.hasNext()) {
+                Restaurants std = (Restaurants) itr.next();
+                out.println("<div class=\"row\">"+
+                                "<div class=\"col-md-4\">"+
+                                    "<img class=\"img-fluid\" src=\"img/empty.png\">"+
+                                "</div>"+
+                                "<div class=\"col-md-8\">"+
+                                    "<h2>"+ std.getName()+ "</h2>" +
+                                    "<p>"+ std.getAddress() + "</p>" +
+                                    "<p>"+ std.getWebsite() + "</p>" +
+                                    "<p>"+ std.getTelephone() + "</p>" +
+                                    "<p>"+ std.getType() + "</p>" +
+                                    "<p>"+ "<a class=\"btn btn-secondary\" href=\"test\" role=\"button\"> Més informació %raquo;</a>"+"</a>"+"</p>" +
+                                "</div>" +
+                            "<div>"
+                );
+
+        %>
+
         <!-- Example row of columns -->
         <div class="row">
             <div class="col-md-4">
@@ -93,7 +123,7 @@
 </main>
 
 <footer class="container">
-    <p>&copy; Nom de l'alumne 2017</p>
+    <p>&copy; Miquel Servera Julià 2017</p>
 </footer>
 
 <!-- Optional JavaScript -->
