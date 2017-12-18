@@ -40,7 +40,7 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Cercar" aria-label="Cercar">
+            <input class="form-control mr-sm-2" name="cerca" type="text" placeholder="Cercar" aria-label="Cercar">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cercar</button>
         </form>
     </div>
@@ -51,9 +51,9 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
         <div class="container">
-            <h1 class="display-3">Hello, world!</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a class="btn btn-primary btn-lg" href="test" role="button">Learn more &raquo;</a></p>
+            <h1 class="display-3">Restaurants</h1>
+            <p>Pàgina web que mostra restaurants.</p>
+            <p><a class="btn btn-primary btn-lg" href="test" role="button">Consultar més &raquo;</a></p>
         </div>
     </div>
 
@@ -62,63 +62,30 @@
 
 
             Connect Connect = new Connect();
-            ArrayList arrayRestaurants = Connect.readRestaurants();
+            ArrayList arrayRestaurants = Connect.readRestaurants(request.getParameter("cerca"));
             Iterator itr = arrayRestaurants.iterator();
 
             while (itr.hasNext()) {
                 Restaurants std = (Restaurants) itr.next();
-                out.println("<div class=\"row\">"+
-                                "<div class=\"col-md-4\">"+
-                                    "<img class=\"img-fluid\" src=\"img/empty.png\">"+
-                                "</div>"+
-                                "<div class=\"col-md-8\">"+
-                                    "<h2>"+ std.getName()+ "</h2>" +
-                                    "<p>"+ std.getAddress() + "</p>" +
-                                    "<p>"+ std.getWebsite() + "</p>" +
-                                    "<p>"+ std.getTelephone() + "</p>" +
-                                    "<p>"+ std.getType() + "</p>" +
-                                    "<p>"+ "<a class=\"btn btn-secondary\" href=\"test\" role=\"button\"> Més informació %raquo;</a>"+"</a>"+"</p>" +
-                                "</div>" +
-                            "<div>"
+                out.println("<div class=\"row\">" +
+                        "<div class=\"col-md-4\">" +
+                        "<img class=\"img-fluid\" src=\"img/empty.png\">" +
+                        "</div>" +
+                        "<div class=\"col-md-8\">" +
+                        "<h2>" + std.getName() + "</h2>" +
+                        "<p>" + std.getAddress() + "</p>" +
+                        "<p>" + std.getWebsite() + "</p>" +
+                        "<p>" + std.getTelephone() + "</p>" +
+                        "<p>" + std.getType() + "</p>" +
+                        "<p>" + "<a class=\"btn btn-secondary\" href=\"test\" role=\"button\"> Més informació</a>" + "</a>" + "</p>" +
+                        "</div>" +
+                        "</div>"
                 );
+            }
 
         %>
 
-        <!-- Example row of columns -->
-        <div class="row">
-            <div class="col-md-4">
-                <img class="img-fluid" src="img/empty.png">
-            </div>
-            <div class="col-md-8">
-                <h2>Restaurant 1</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn btn-secondary" href="test" role="button">Més informació &raquo;</a></p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <img class="img-fluid" src="img/empty.png">
-            </div>
-            <div class="col-md-8">
-                <h2>Restaurant 2</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn btn-secondary" href="test" role="button">Més informació &raquo;</a></p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <img class="img-fluid" src="img/empty.png">
-            </div>
-            <div class="col-md-8">
-                <h2>Restaurant 3</h2>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                <p><a class="btn btn-secondary" href="test" role="button">Més informació &raquo;</a></p>
-            </div>
-        </div>
 
-        <hr>
-
-    </div> <!-- /container -->
 
 </main>
 

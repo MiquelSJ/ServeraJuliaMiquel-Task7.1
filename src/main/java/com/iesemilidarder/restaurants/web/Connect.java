@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 // Classe per connectar a una base de dades i array dels restaturants
 public class Connect {
-    public ArrayList readRestaurants() {
+    public ArrayList readRestaurants(String cerca) {
         ArrayList arrayRestaurants = new ArrayList();
         try {
             // Per fer la connexió a la base de dades
@@ -19,7 +19,12 @@ public class Connect {
             Statement stmt = con.createStatement();
 
             // Sentència SQL per treure la informació guardada a la base de dades
-            ResultSet rs = stmt.executeQuery("SELECT RES_NOM, RES_ADRECA, RES_WEB, RES_TELEFON, TRS_DESCRIPCIO FROM  RESTAURANTS , TRESTAURANTS WHERE TRS_CODI = RES_TRS_CODI");
+            ResultSet rs ;
+            if (cerca==null) {
+                rs = stmt.executeQuery("SELECT RES_NOM, RES_ADRECA, RES_WEB, RES_TELEFON, TRS_DESCRIPCIO FROM  RESTAURANTS , TRESTAURANTS WHERE TRS_CODI = RES_TRS_CODI");
+            } else {
+                rs = stmt.executeQuery("SELECT RES_NOM, RES_ADRECA, RES_WEB, RES_TELEFON, TRS_DESCRIPCIO FROM  RESTAURANTS , TRESTAURANTS WHERE TRS_CODI = RES_TRS_CODI AND LOWER (RES_NOM) LIKE '%"+cerca.toLowerCase()+"%'");
+            }
             while (rs.next()) {
                 String name = rs.getString("RES_NOM");
                 String address = rs.getString("RES_ADRECA");
