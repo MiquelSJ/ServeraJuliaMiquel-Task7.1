@@ -7,6 +7,7 @@ public class Restaurants {
     private String website;
     private String telephone;
     private String type;
+    private String images;
 
     // Getters
     public String getName() {
@@ -29,6 +30,10 @@ public class Restaurants {
         return type;
     }
 
+    public String getImages() {
+        return images;
+    }
+
     // Setters
     public void setName(String name) {
         this.name = name;
@@ -48,5 +53,9 @@ public class Restaurants {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
     }
 }

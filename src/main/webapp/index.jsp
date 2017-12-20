@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.min.css" >
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
@@ -32,11 +32,14 @@
             <li class="nav-item active">
                 <a class="nav-link" href="#">Inici <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="test">Enllaç 1</a>
+            <li  class="nav-item">
+                <a class="nav-link" href="test">Inicia sessió</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="test">Enllaç 2</a>
+                <a class="nav-link" href="test">Registra't</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="test">Ajuda</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -51,8 +54,8 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
         <div class="container">
-            <h1 class="display-3">Restaurants</h1>
-            <p>Pàgina web que mostra restaurants.</p>
+            <h1 class="display-3">Demana el que et demani el cos</h1>
+            <h2>Menjar a domicili a prop de tu</h2>
             <p><a class="btn btn-primary btn-lg" href="test" role="button">Consultar més &raquo;</a></p>
         </div>
     </div>
@@ -69,15 +72,14 @@
                 Restaurants std = (Restaurants) itr.next();
                 out.println("<div class=\"row\">" +
                         "<div class=\"col-md-4\">" +
-                        "<img class=\"img-fluid\" src=\"img/empty.png\">" +
+                        "<img class=\"img-fluid\" src=\""+ std.getImages()+"\">" +
                         "</div>" +
                         "<div class=\"col-md-8\">" +
                         "<h2>" + std.getName() + "</h2>" +
                         "<p>" + std.getAddress() + "</p>" +
-                        "<p>" + std.getWebsite() + "</p>" +
                         "<p>" + std.getTelephone() + "</p>" +
                         "<p>" + std.getType() + "</p>" +
-                        "<p>" + "<a class=\"btn btn-secondary\" href=\"test\" role=\"button\"> Més informació</a>" + "</a>" + "</p>" +
+                        "<p>" + "<a target=\"_blank\"class=\"btn btn-secondary\" href=\""+std.getWebsite() +"\" role=\"button\"> Més informació</a>" + "</a>" + "</p>" +
                         "</div>" +
                         "</div>"
                 );

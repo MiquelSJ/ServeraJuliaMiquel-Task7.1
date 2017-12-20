@@ -21,9 +21,9 @@ public class Connect {
             // Sentència SQL per treure la informació guardada a la base de dades
             ResultSet rs ;
             if (cerca==null) {
-                rs = stmt.executeQuery("SELECT RES_NOM, RES_ADRECA, RES_WEB, RES_TELEFON, TRS_DESCRIPCIO FROM  RESTAURANTS , TRESTAURANTS WHERE TRS_CODI = RES_TRS_CODI");
+                rs = stmt.executeQuery("SELECT RES_NOM, RES_ADRECA, RES_WEB, RES_TELEFON, TRS_DESCRIPCIO, RES_URL_IMG FROM  RESTAURANTS , TRESTAURANTS WHERE TRS_CODI = RES_TRS_CODI");
             } else {
-                rs = stmt.executeQuery("SELECT RES_NOM, RES_ADRECA, RES_WEB, RES_TELEFON, TRS_DESCRIPCIO FROM  RESTAURANTS , TRESTAURANTS WHERE TRS_CODI = RES_TRS_CODI AND LOWER (RES_NOM) LIKE '%"+cerca.toLowerCase()+"%'");
+                rs = stmt.executeQuery("SELECT RES_NOM, RES_ADRECA, RES_WEB, RES_TELEFON, TRS_DESCRIPCIO, RES_URL_IMG FROM  RESTAURANTS , TRESTAURANTS WHERE TRS_CODI = RES_TRS_CODI AND LOWER (RES_NOM) LIKE '%"+cerca.toLowerCase()+"%'");
             }
             while (rs.next()) {
                 String name = rs.getString("RES_NOM");
@@ -31,6 +31,7 @@ public class Connect {
                 String website = rs.getString("RES_WEB");
                 String telephone = rs.getString("RES_TELEFON");
                 String type = rs.getString("TRS_DESCRIPCIO");
+                String images = rs.getString("RES_URL_IMG");
 
                 Restaurants std = new Restaurants();
                 std.setName(name);
@@ -38,6 +39,7 @@ public class Connect {
                 std.setWebsite(website);
                 std.setTelephone(telephone);
                 std.setType(type);
+                std.setImages(images);
 
 
 
