@@ -8,6 +8,10 @@ public class Restaurants {
     private String telephone;
     private String type;
     private String images;
+    private String mitjana;
+
+
+
 
     // Getters
     public String getName() {
@@ -34,6 +38,10 @@ public class Restaurants {
         return images;
     }
 
+    public String getMitjana() {
+        return mitjana;
+    }
+
     // Setters
     public void setName(String name) {
         this.name = name;
@@ -58,4 +66,9 @@ public class Restaurants {
     public void setImages(String images) {
         this.images = images;
     }
+
+    public void setMitjana(String mitjana) {
+        this.mitjana = mitjana;
+    }
+
 }

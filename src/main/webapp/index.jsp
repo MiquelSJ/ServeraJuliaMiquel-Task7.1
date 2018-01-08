@@ -33,13 +33,13 @@
                 <a class="nav-link" href="#">Inici <span class="sr-only">(current)</span></a>
             </li>
             <li  class="nav-item">
-                <a class="nav-link" href="test">Inicia sessió</a>
+                <a text-align="right" class="nav-link" href="test">Inicia sessió</a>
+            </li>
+            <li  class="nav-item">
+                <a text-align="right" class="nav-link" href="test">Registra't</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="test">Registra't</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="test">Ajuda</a>
+                <a text-align="right" class="nav-link" href="test">Ajuda</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -79,6 +79,7 @@
                         "<p>" + std.getAddress() + "</p>" +
                         "<p>" + std.getTelephone() + "</p>" +
                         "<p>" + std.getType() + "</p>" +
+                        "<p>" + "<p>Puntuació ♥ " + std.getMitjana() + "</p>" +
                         "<p>" + "<a target=\"_blank\"class=\"btn btn-secondary\" href=\""+std.getWebsite() +"\" role=\"button\"> Més informació</a>" + "</a>" + "</p>" +
                         "</div>" +
                         "</div>"
